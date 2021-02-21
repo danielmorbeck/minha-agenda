@@ -1,0 +1,19 @@
+{
+  "name": "minha-agenda",
+  "version": "1.0.0",
+  "description": "Desafio VilaApps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielmorbeck/minha-agenda.git"
+  },
+  "author": "danielmorbeck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielmorbeck/minha-agenda/issues"
+  },
+  "homepage": "https://github.com/danielmorbeck/minha-agenda#readme"
+}
