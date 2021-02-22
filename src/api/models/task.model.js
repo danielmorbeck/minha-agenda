@@ -8,13 +8,20 @@ const TaskSchema = new Schema({
     required: true
   },
   dates: {
-    type: [Date],
-    default: [Date.now()]
+    type: [String],
+    required: true
   },
   status: {
     type: String,
     enum: ['pending', 'finished'],
     default: 'pending'
+  },
+  repeat: {
+    type: String,
+    enum: ['daily', 'weekly', 'monthly']
+  },
+  end_repeat: {
+    type: Number
   },
   user: { type: Schema.Types.ObjectId, ref: 'User' }
 });

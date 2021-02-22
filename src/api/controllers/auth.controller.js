@@ -29,15 +29,15 @@ class AuthController {
       }
       
       if (!cpfValidator.cpf.isValid(req.body.cpf)) {
-        return res.status(422).send({error: 'Invalid CPF.'});
+        return res.status(400).send({error: 'Invalid CPF.'});
       }
       
       if (!emailValidator.validate(req.body.email)) {
-        return res.status(422).send({error: 'Invalid Email.'});
+        return res.status(400).send({error: 'Invalid Email.'});
       }
       
       if (!parsePhone(req.body.phone)) {
-        return res.status(422).send({error: 'Invalid phone.'});
+        return res.status(400).send({error: 'Invalid phone.'});
       }
 
       const user = await User.create({
