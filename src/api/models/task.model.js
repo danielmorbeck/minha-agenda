@@ -16,7 +16,7 @@ const TaskSchema = new Schema({
     enum: ['pending', 'finished'],
     default: 'pending'
   },
-  user: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+  user: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
 module.exports = mongoose.model('Task', TaskSchema);

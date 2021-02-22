@@ -13,7 +13,6 @@ class TaskController {
 
   async store (req, res, next) {
     try {
-      console.log('body:', req.body);
       const task = await Task.create(req.body);
       return res.status(200).send(task);
     } catch (e) {
