@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const TaskSchema = new mongoose.Schema({
+const Schema = mongoose.Schema;
+
+const TaskSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -13,7 +15,8 @@ const TaskSchema = new mongoose.Schema({
     type: String,
     enum: ['pending', 'finished'],
     default: 'pending'
-  }
+  },
+  user: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 });
 
 module.exports = mongoose.model('Task', TaskSchema);
