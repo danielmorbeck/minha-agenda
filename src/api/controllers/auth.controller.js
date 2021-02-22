@@ -1,7 +1,10 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-let User = require('../models/user.model');
+const cpfValidator = require('cpf-cnpj-validator');
+const emailValidator = require('email-validator');
+const parsePhone = require('telefone/parse');
 
+const User = require('../models/user.model');
 const auth = require('../config/auth.config');
 
 class AuthController {
@@ -23,6 +26,18 @@ class AuthController {
 
       if (userExist) {
         return res.status(422).send({error: 'User already exist.'});
+      }
+      
+      if (!cpfValidator.cpf.isValid(req.body.cpf)) {
+        return res.status(422).send({error: 'Invalid CPF.'});
+      }
+      
+      if (!emailValidator.validate(req.body.email)) {
+        return res.status(422).send({error: 'Invalid Email.'});
+      }
+      
+      if (!parsePhone(req.body.phone)) {
+        return res.status(422).send({error: 'Invalid phone.'});
       }
 
       const user = await User.create({
