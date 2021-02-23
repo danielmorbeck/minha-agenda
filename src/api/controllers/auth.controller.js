@@ -45,7 +45,7 @@ class AuthController {
         email: req.body.email,
         phone: req.body.phone,
         password: bcrypt.hashSync(req.body.password, 8),
-        tasks: req.body?.tasks
+        tasks: req.body.tasks
       });
 
       return AuthController.generateJWT(user, res);
